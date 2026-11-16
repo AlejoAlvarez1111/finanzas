@@ -50,18 +50,23 @@ export default async function CuentasPage() {
       ) : (
         <ul className="flex flex-col gap-3">
           {rows.map((a) => (
-            <li key={a.id} className="flex items-center gap-3 rounded-2xl border border-line bg-surface p-4">
-              <div
-                aria-hidden="true"
-                className={`flex size-11 shrink-0 items-center justify-center rounded-full font-bold ${BADGE[a.type as AccountType]}`}
+            <li key={a.id}>
+              <Link
+                href={`/cuentas/${a.id}`}
+                className="flex items-center gap-3 rounded-2xl border border-line bg-surface p-4"
               >
-                {a.name.charAt(0).toUpperCase()}
-              </div>
-              <div className="min-w-0 flex-1">
-                <p className="truncate font-semibold">{a.name}</p>
-                <p className="text-xs text-muted">{ACCOUNT_TYPES[a.type as AccountType]}</p>
-              </div>
-              <p className="font-bold">{formatCOP(a.balance)}</p>
+                <div
+                  aria-hidden="true"
+                  className={`flex size-11 shrink-0 items-center justify-center rounded-full font-bold ${BADGE[a.type as AccountType]}`}
+                >
+                  {a.name.charAt(0).toUpperCase()}
+                </div>
+                <div className="min-w-0 flex-1">
+                  <p className="truncate font-semibold">{a.name}</p>
+                  <p className="text-xs text-muted">{ACCOUNT_TYPES[a.type as AccountType]}</p>
+                </div>
+                <p className="font-bold">{formatCOP(a.balance)}</p>
+              </Link>
             </li>
           ))}
         </ul>

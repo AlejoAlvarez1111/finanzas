@@ -8,6 +8,7 @@ const ITEMS = [
   { href: "/historial", label: "Historial", ready: false },
 { href: "/cuentas", label: "Cuentas", ready: true },
   { href: "/recurrentes", label: "Recurrentes", ready: false },
+    { href: "/categorias", label: "Categorías", ready: true },
 ];
 
 export function AppNav({ variant }: { variant: "side" | "bottom" }) {
